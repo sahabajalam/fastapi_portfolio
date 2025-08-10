@@ -1,0 +1,476 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<!-- All CSS is loaded via main.css -->
+{% endblock %}{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">Data Scientist & ML Engineer</h1>
+            <p class="hero-subtitle">Transforming complex data into actionable insights with cutting-edge AI and
+                machine learning solutions</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToBlog()">View My Work</button>
+                <button class="btn-secondary" onclick="scrollToSection('about')">Learn More</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="about-container">
+        <div class="about-content">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-typing-text">
+                Passionate about leveraging data science and machine learning to drive innovation and improve
+                decision-making.
+            </p>
+        </div>
+
+        <div class="about-cards-grid">
+            <!-- Education Card -->
+            <div class="about-card">
+                <div class="about-card-header">
+                    <h3 class="about-card-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Education
+                    </h3>
+                </div>
+                <div class="about-education-list">
+                    <div class="about-education-item">
+                        <div class="about-education-header">
+                            <div class="about-education-degree">Master of Science in Data Science and Artificial
+                                Intelligence</div>
+                            <div class="about-education-date">2024 - 2025</div>
+                        </div>
+                        <div class="about-education-school">Bournemouth University</div>
+                    </div>
+                    <div class="about-education-item">
+                        <div class="about-education-header">
+                            <div class="about-education-degree">Bachelor of Technology in Electronics and Communication
+                                Engineering</div>
+                            <div class="about-education-date">2014 - 2018</div>
+                        </div>
+                        <div class="about-education-school">Aliah University</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div class="about-card">
+                <div class="about-card-header">
+                    <h3 class="about-card-title">
+                        <i class="fas fa-cogs"></i>
+                        Skills
+                    </h3>
+                </div>
+                <div class="about-skill-list">
+                    <div class="about-skill-item">
+                        <i class="fab fa-python"></i>
+                        Python
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fab fa-js-square"></i>
+                        JavaScript
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fab fa-java"></i>
+                        Java
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fas fa-database"></i>
+                        SQL
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fab fa-aws"></i>
+                        AWS
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Card -->
+            <div class="about-card">
+                <div class="about-card-header">
+                    <h3 class="about-card-title">
+                        <i class="fas fa-certificate"></i>
+                        Certifications
+                    </h3>
+                </div>
+                <div class="about-certifications-container">
+                    {% for certification in certifications %}
+                    <div class="about-certification-item">
+                        <div class="about-certification-header">
+                            <div class="about-certification-title">{{ certification.title }}</div>
+                            <div class="about-certification-date">{{ certification.issue_date }}</div>
+                        </div>
+                        <div class="about-certification-issuer">{{ certification.issuer }}</div>
+                        {% if certification.credential_url %}
+                        <a href="{{ certification.credential_url }}" class="about-certification-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Certificate
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="blog-section">
+    <div class="container">
+        <h2 class="section-title">Latest Articles</h2>
+        <div class="blog-cards-grid">
+            <!-- Blog Post 1 - LATEST -->
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <span class="blog-post-date">Dec 4, 2024</span>
+                    <h3 class="blog-post-title">Revolutionizing NLP with Transformer Architecture</h3>
+                    <p class="blog-post-preview">Explore how transformer architecture has fundamentally changed natural
+                        language processing, enabling breakthrough applications in machine translation, text generation,
+                        and language understanding through attention mechanisms.</p>
+                </div>
+                <div class="blog-post-footer">
+                    <div class="blog-footer-content">
+                        <div class="blog-meta-wrapper">
+                            <span class="blog-category">Machine Learning</span>
+                            <span class="blog-read-time">8 min read</span>
+                        </div>
+                        <div class="blog-action-wrapper">
+                            <a href="/blog/transformer-architecture" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <span class="blog-post-date">Nov 28, 2024</span>
+                    <h3 class="blog-post-title">Deep Learning in Computer Vision: A Practical Guide</h3>
+                    <p class="blog-post-preview">Discover practical applications of deep learning in computer vision,
+                        from object detection to image segmentation, with hands-on examples and best practices for
+                        building robust vision systems.</p>
+                </div>
+                <div class="blog-post-footer">
+                    <div class="blog-footer-content">
+                        <div class="blog-meta-wrapper">
+                            <span class="blog-category">Computer Vision</span>
+                            <span class="blog-read-time">12 min read</span>
+                        </div>
+                        <div class="blog-action-wrapper">
+                            <a href="/blog/deep-learning-computer-vision" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <span class="blog-post-date">Nov 15, 2024</span>
+                    <h3 class="blog-post-title">Time Series Forecasting with LSTM Networks</h3>
+                    <p class="blog-post-preview">Learn how to build powerful time series forecasting models using LSTM
+                        networks, covering data preprocessing, model architecture, and practical implementation for
+                        financial and business applications.</p>
+                </div>
+                <div class="blog-post-footer">
+                    <div class="blog-footer-content">
+                        <div class="blog-meta-wrapper">
+                            <span class="blog-category">Deep Learning</span>
+                            <span class="blog-read-time">10 min read</span>
+                        </div>
+                        <div class="blog-action-wrapper">
+                            <a href="/blog/time-series-lstm" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- View All Articles Button -->
+        <div class="view-all-container">
+            <a href="/blog" class="view-all-btn">
+                <span>View All Articles</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-category="analytics">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+                    alt="Analytics Dashboard" class="project-image">
+                <div class="project-title-bar">
+                    <h3 class="project-title-visible">Predictive Analytics Dashboard</h3>
+                </div>
+                <div class="project-overlay">
+                    <div class="project-overlay-header">
+                        <h3 class="project-overlay-title">Predictive Analytics Dashboard</h3>
+                    </div>
+                    <div class="project-overlay-content">
+                        <div class="project-overlay-middle">
+                            <p class="project-description">Interactive dashboard for sales forecasting with advanced
+                                filtering and real-time updates using modern visualization libraries.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Streamlit</span>
+                                <span class="tag">Scikit-learn</span>
+                                <span class="tag">Plotly</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay-bottom">
+                            <div class="project-links">
+                                <a href="#" class="project-link live-demo">Live Demo</a>
+                                <a href="#" class="project-link view-code">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="computer-vision">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop"
+                    alt="Computer Vision" class="project-image">
+                <div class="project-title-bar">
+                    <h3 class="project-title-visible">Image Classification System</h3>
+                </div>
+                <div class="project-overlay">
+                    <div class="project-overlay-header">
+                        <h3 class="project-overlay-title">Image Classification System</h3>
+                    </div>
+                    <div class="project-overlay-content">
+                        <div class="project-overlay-middle">
+                            <p class="project-description">Computer vision model for object identification with 94%
+                                accuracy using deep learning and transfer learning techniques.</p>
+                            <div class="project-tags">
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">CNN</span>
+                                <span class="tag">OpenCV</span>
+                                <span class="tag">Transfer Learning</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay-bottom">
+                            <div class="project-links">
+                                <a href="#" class="project-link live-demo">Live Demo</a>
+                                <a href="#" class="project-link view-code">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="time-series">
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop"
+                    alt="Time Series Forecasting" class="project-image">
+                <div class="project-title-bar">
+                    <h3 class="project-title-visible">Financial Time Series Forecaster</h3>
+                </div>
+                <div class="project-overlay">
+                    <div class="project-overlay-header">
+                        <h3 class="project-overlay-title">Financial Time Series Forecaster</h3>
+                    </div>
+                    <div class="project-overlay-content">
+                        <div class="project-overlay-middle">
+                            <p class="project-description">LSTM-based model for predicting stock market trends with
+                                sentiment analysis and risk assessment features.</p>
+                            <div class="project-tags">
+                                <span class="tag">Keras</span>
+                                <span class="tag">LSTM</span>
+                                <span class="tag">Time Series</span>
+                                <span class="tag">Financial API</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay-bottom">
+                            <div class="project-links">
+                                <a href="#" class="project-link live-demo">Live Demo</a>
+                                <a href="#" class="project-link view-code">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="nlp">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=300&fit=crop"
+                    alt="Sentiment Analysis" class="project-image">
+                <div class="project-title-bar">
+                    <h3 class="project-title-visible">Sentiment Analysis Tool</h3>
+                </div>
+                <div class="project-overlay">
+                    <div class="project-overlay-header">
+                        <h3 class="project-overlay-title">Sentiment Analysis Tool</h3>
+                    </div>
+                    <div class="project-overlay-content">
+                        <div class="project-overlay-middle">
+                            <p class="project-description">NLP application for analyzing customer reviews and social
+                                media
+                                sentiments with real-time visualization capabilities.</p>
+                            <div class="project-tags">
+                                <span class="tag">BERT</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Flask</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay-bottom">
+                            <div class="project-links">
+                                <a href="#" class="project-link live-demo">Live Demo</a>
+                                <a href="#" class="project-link view-code">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="recommendation">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+                    alt="Recommendation System" class="project-image">
+                <div class="project-title-bar">
+                    <h3 class="project-title-visible">Product Recommendation Engine</h3>
+                </div>
+                <div class="project-overlay">
+                    <div class="project-overlay-header">
+                        <h3 class="project-overlay-title">Product Recommendation Engine</h3>
+                    </div>
+                    <div class="project-overlay-content">
+                        <div class="project-overlay-middle">
+                            <p class="project-description">Collaborative filtering system for e-commerce with user
+                                behavior tracking
+                                and personalization algorithms.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">PySpark</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">A/B Testing</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay-bottom">
+                            <div class="project-links">
+                                <a href="#" class="project-link live-demo">Live Demo</a>
+                                <a href="#" class="project-link view-code">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Projects Card -->
+            <div class="project-card view-all-card">
+                <div class="view-all-card-content">
+                    <div class="view-all-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3 class="view-all-title">View All Projects</h3>
+                    <p class="view-all-description">Explore my complete portfolio of data science and machine
+                        learning
+                        projects</p>
+                    <a href="#" class="view-all-btn">
+                        Browse All <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    // Navigation functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const navLinks = document.querySelectorAll('.navbar-link-anchor');
+        const navbar = document.querySelector('.navbar');
+        const mobileToggle = document.querySelector('.navbar-mobile-menu-toggle');
+        const navLinksContainer = document.querySelector('.navbar-links');
+
+        // Navigation link clicks
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Remove active class from all links
+                document.querySelectorAll('.navbar-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add active class to clicked link
+                this.closest('.navbar-link').classList.add('active');
+
+                // Scroll to section
+                const targetSection = this.getAttribute('data-section');
+                const section = document.getElementById(targetSection);
+                if (section) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = section.offsetTop - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function () {
+                navLinksContainer.classList.toggle('mobile-open');
+                mobileToggle.classList.toggle('active');
+            });
+        }
+    });
+
+    // Smooth scroll to blog section
+    function scrollToBlog() {
+        document.getElementById('blog').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/modules/AnimationEngine.js"></script>
+<script src="/static/js/components/Hero.js"></script>
+<script src="/static/js/components/Projects.js"></script>
+{% endblock %}

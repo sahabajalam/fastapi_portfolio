@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Blog - {{ personal_info.name }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/sections/blog.css">
+{% endblock %}
+
+{% block content %}
+<section class="blog-page">
+    <div class="container">
+        <header class="blog-header">
+            <h1 class="page-title">📝 My Blog</h1>
+            <p class="page-subtitle">Thoughts, insights, and learnings from my journey in tech</p>
+        </header>
+
+        <div class="blog-grid">
+            {% for blog in blogs %}
+            <article class="blog-card">
+                <img src="{{ blog.image }}" alt="{{ blog.title }}" class="blog-image" loading="lazy">
+                <div class="blog-content">
+                    <h2 class="blog-title">{{ blog.title }}</h2>
+                    <p class="blog-preview">{{ blog.preview }}</p>
+                    <div class="blog-meta">
+                        {% if blog.reading_time %}
+                        <span class="reading-time">{{ blog.reading_time }}</span>
+                        {% endif %}
+                        {% if blog.published_date %}
+                        <span class="publish-date">{{ blog.published_date.strftime('%B %d, %Y') }}</span>
+                        {% endif %}
+                    </div>
+                    {% if blog.tags %}
+                    <div class="blog-tags">
+                        {% for tag in blog.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <a href="{{ blog.link }}" target="_blank" class="blog-link">Read on Medium →</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/modules/BlogManager.js"></script>
+<script src="/static/js/components/Blog.js"></script>
+{% endblock %}

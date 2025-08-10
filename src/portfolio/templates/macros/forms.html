@@ -1,0 +1,24 @@
+<!-- Form macros for reusable form components -->
+{% macro input_field(name, type="text", label="", placeholder="", required=false) %}
+<div class="form-group">
+    {% if label %}
+    <label for="{{ name }}" class="form-label">{{ label }}</label>
+    {% endif %}
+    <input type="{{ type }}" id="{{ name }}" name="{{ name }}" class="form-input" {% if placeholder
+        %}placeholder="{{ placeholder }}" {% endif %} {% if required %}required{% endif %}>
+</div>
+{% endmacro %}
+
+{% macro textarea_field(name, label="", placeholder="", rows=4, required=false) %}
+<div class="form-group">
+    {% if label %}
+    <label for="{{ name }}" class="form-label">{{ label }}</label>
+    {% endif %}
+    <textarea id="{{ name }}" name="{{ name }}" class="form-textarea" rows="{{ rows }}" {% if placeholder
+        %}placeholder="{{ placeholder }}" {% endif %} {% if required %}required{% endif %}></textarea>
+</div>
+{% endmacro %}
+
+{% macro submit_button(text="Submit", class="btn btn-primary") %}
+<button type="submit" class="{{ class }}">{{ text }}</button>
+{% endmacro %}

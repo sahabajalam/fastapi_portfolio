@@ -1,0 +1,119 @@
+/* Button Components - Apple Style */
+.btn-primary,
+.btn-secondary {
+    padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 3vw, 2rem);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    box-shadow: var(--glow-button);
+}
+
+.btn-secondary {
+    background: rgba(0, 185, 107, 0.08);
+    color: var(--text-accent);
+    border: 2px solid var(--border-accent);
+    backdrop-filter: blur(10px);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: var(--hover-lift-sm) scale(1.02);
+}
+
+.btn-primary:hover {
+    box-shadow: var(--glow-button), 0 0 30px rgba(0, 185, 107, 0.25);
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 185, 107, 0.12);
+    border-color: var(--border-accent-strong);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    font-size: var(--font-size-lg);
+}
+
+/* Button States */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading Button */
+.btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Icon buttons */
+.btn-icon {
+    padding: var(--spacing-md);
+    border-radius: 50%;
+    aspect-ratio: 1;
+}
+
+/* Button groups */
+.btn-group {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+@media (max-width: 767px) {
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

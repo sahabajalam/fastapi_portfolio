@@ -1,0 +1,106 @@
+/* Apple-Style Portfolio Design System - Light Theme */
+:root {
+    /* System Fonts */
+    --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+    /* Layout System */
+    --section-width: 100vw;
+    --section-height: 100vh;
+    --max-content-width: 90vw;
+    --max-content-height: 80vh;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+
+    /* Dynamic Content Scaling */
+    --content-scale: 1;
+
+    /* Light Theme Colors */
+    --primary-green: #00b96b;
+    --secondary-cyan: #0088cc;
+    --primary-gradient: linear-gradient(135deg, #00b96b 0%, #0088cc 100%);
+
+    --bg-primary: #ffffff;
+    --bg-secondary: rgba(248, 248, 248, 0.98);
+    --bg-card: rgba(255, 255, 255, 0.9);
+
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-tertiary: #6a6a6a;
+    --text-accent: #00b96b;
+    --text-gradient: linear-gradient(135deg, #00b96b 0%, #0088cc 100%);
+    --text-white: #ffffff;
+
+    --border-accent: rgba(0, 185, 107, 0.2);
+    --border-accent-strong: rgba(0, 185, 107, 0.3);
+    --border-subtle: rgba(0, 185, 107, 0.1);
+
+    --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+    --glow-accent: 0 10px 30px rgba(0, 185, 107, 0.15);
+    --glow-button: 0 8px 25px rgba(0, 185, 107, 0.2);
+
+    --transition-smooth: all 0.3s ease;
+    --transition: all 0.4s ease;
+    --hover-lift: translateY(-5px);
+    --hover-lift-sm: translateY(-2px);
+    --card-height: 320px;
+    --card-height-mobile: 280px;
+}
+
+/* Dynamic Scaling System */
+@media (min-width: 2560px) {
+    :root {
+        --content-scale: 1.2;
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 2559px) {
+    :root {
+        --content-scale: 1.05;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+    :root {
+        --content-scale: 1;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+    :root {
+        --content-scale: 0.95;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    :root {
+        --content-scale: 0.85;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --content-scale: 0.75;
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --content-scale: 0.8;
+    }
+}
+
+/* Height adjustments */
+@media (max-height: 700px) {
+    :root {
+        --content-scale: calc(var(--content-scale) * 0.8);
+    }
+}
+
+@media (min-height: 1200px) {
+    :root {
+        --content-scale: calc(var(--content-scale) * 1.1);
+    }
+}

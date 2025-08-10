@@ -1,0 +1,58 @@
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <div class="footer-logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="footer-brand-text">
+                    <span class="footer-brand-name">{{ personal_info.name }}</span>
+                    <span class="footer-brand-tagline">{{ personal_info.title }}</span>
+                </div>
+            </div>
+            <div class="footer-social">
+                {% if personal_info.github %}
+                <a href="{{ personal_info.github }}" target="_blank" class="footer-social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                {% endif %}
+                {% if personal_info.linkedin %}
+                <a href="{{ personal_info.linkedin }}" target="_blank" class="footer-social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                {% endif %}
+                {% if personal_info.twitter %}
+                <a href="{{ personal_info.twitter }}" target="_blank" class="footer-social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                {% endif %}
+                <a href="mailto:{{ personal_info.email }}" class="footer-social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#" class="footer-link">MIT License</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+            <p class="footer-copyright">
+                © 2025 <span class="accent">{{ personal_info.name }}</span>. Made with ❤️ and lots of ☕
+            </p>
+            <a href="#" class="footer-back-to-top" onclick="scrollToTop()">
+                <span>Back to top</span>
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>

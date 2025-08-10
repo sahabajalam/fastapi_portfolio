@@ -1,0 +1,90 @@
+/* Dark Theme Styles */
+[data-theme="dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #808080;
+    --background-primary: #1a1a1a;
+    --background-secondary: #2d2d2d;
+    --background-dark: #0f0f0f;
+    --border-color: #404040;
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] .navbar {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom-color: #404040;
+}
+
+[data-theme="dark"] .hero-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .blog-card,
+[data-theme="dark"] .certification-card {
+    background: #2d2d2d;
+    border-color: #404040;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .project-card:hover,
+[data-theme="dark"] .blog-card:hover,
+[data-theme="dark"] .certification-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea,
+[data-theme="dark"] .form-select {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .form-textarea:focus,
+[data-theme="dark"] .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(3, 168, 124, 0.2);
+}
+
+[data-theme="dark"] .tech-tag,
+[data-theme="dark"] .tag {
+    background: rgba(3, 168, 124, 0.2);
+    border-color: rgba(3, 168, 124, 0.3);
+}
+
+[data-theme="dark"] .footer {
+    background: #0f0f0f;
+}
+
+/* Dark theme code blocks */
+[data-theme="dark"] code,
+[data-theme="dark"] pre {
+    background: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #404040;
+}
+
+/* Dark theme scrollbars */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: #505050;
+}

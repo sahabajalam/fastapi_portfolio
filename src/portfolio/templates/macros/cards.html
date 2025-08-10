@@ -1,0 +1,46 @@
+<!-- Card macros for reusable card components -->
+{% macro project_card(project) %}
+<div class="project-card">
+    <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+    <div class="project-content">
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-description">{{ project.description }}</p>
+        <div class="project-technologies">
+            {% for tech in project.technologies %}
+            <span class="tech-tag">{{ tech }}</span>
+            {% endfor %}
+        </div>
+        <div class="project-links">
+            {% if project.github_url %}
+            <a href="{{ project.github_url }}" target="_blank" class="project-link">GitHub</a>
+            {% endif %}
+            {% if project.live_url %}
+            <a href="{{ project.live_url }}" target="_blank" class="project-link">Live Demo</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro blog_card(blog) %}
+<div class="blog-card">
+    <img src="{{ blog.image }}" alt="{{ blog.title }}" class="blog-image">
+    <div class="blog-content">
+        <h3 class="blog-title">{{ blog.title }}</h3>
+        <p class="blog-preview">{{ blog.preview }}</p>
+        <div class="blog-meta">
+            {% if blog.reading_time %}
+            <span class="reading-time">{{ blog.reading_time }}</span>
+            {% endif %}
+            {% if blog.tags %}
+            <div class="blog-tags">
+                {% for tag in blog.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <a href="{{ blog.link }}" target="_blank" class="blog-link">Read on Medium</a>
+    </div>
+</div>
+{% endmacro %}
