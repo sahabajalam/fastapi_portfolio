@@ -17,6 +17,7 @@
     box-shadow: 0 4px 12px rgba(0, 185, 107, 0.2);
     text-decoration: none;
     outline: none;
+    z-index: 10;
 }
 
 .btn-primary:hover {

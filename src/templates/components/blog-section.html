@@ -31,7 +31,8 @@
                             8 min read
                         </span>
                     </div>
-                    <a href="/blog/transformer-architecture" class="btn-primary w-full justify-center group">
+                    <a href="/blog/transformer-architecture" class="btn-primary w-full justify-center group"
+                        onclick="handleBlogClick(event, this)">
                         Read Article
                         <i class="fas fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
                     </a>
@@ -66,7 +67,8 @@
                             12 min read
                         </span>
                     </div>
-                    <a href="/blog/deep-learning-computer-vision" class="btn-primary w-full justify-center group">
+                    <a href="/blog/deep-learning-computer-vision" class="btn-primary w-full justify-center group"
+                        onclick="handleBlogClick(event, this)">
                         Read Article
                         <i class="fas fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
                     </a>
@@ -101,7 +103,8 @@
                             10 min read
                         </span>
                     </div>
-                    <a href="/blog/time-series-lstm" class="btn-primary w-full justify-center group">
+                    <a href="/blog/time-series-lstm" class="btn-primary w-full justify-center group"
+                        onclick="handleBlogClick(event, this)">
                         Read Article
                         <i class="fas fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
                     </a>
@@ -118,3 +121,101 @@
         </div>
     </div>
 </section>
+
+<script>
+    // Global function for handling blog clicks
+    function handleBlogClick(event, button) {
+        event.preventDefault();
+        console.log('Blog button clicked via onclick!', button);
+
+        // Add click animation
+        button.style.transform = 'translateY(-1px) scale(0.95)';
+
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 150);
+
+        // Show notification
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 bg-blue-500 text-white transition-all duration-300';
+        notification.innerHTML = '📖 Blog article would open here!';
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 3000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('Blog section JavaScript loaded');
+
+        // Add click handlers for blog article buttons
+        const blogButtons = document.querySelectorAll('.blog-card .btn-primary');
+        console.log('Found blog buttons:', blogButtons.length);
+
+        blogButtons.forEach((button, index) => {
+            console.log(`Setting up button ${index}:`, button);
+
+            button.addEventListener('click', function (e) {
+                console.log('Blog button clicked!', this);
+                e.preventDefault();
+
+                // Add click animation
+                this.style.transform = 'translateY(-1px) scale(0.95)';
+
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+
+                // Get the href attribute
+                const href = this.getAttribute('href');
+                console.log('Button href:', href);
+
+                // Show notification instead of navigation for demo
+                if (typeof showNotification === 'function') {
+                    showNotification('📖 Blog article would open here!', 'info');
+                } else {
+                    // Fallback notification
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 bg-blue-500 text-white';
+                    notification.innerHTML = '📖 Blog article would open here!';
+                    document.body.appendChild(notification);
+
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 3000);
+                }
+            });
+
+            // Test if button is clickable by adding a simple test
+            button.style.cursor = 'pointer';
+            button.style.pointerEvents = 'auto';
+
+            // Add hover enhancement
+            button.addEventListener('mouseenter', function () {
+                console.log('Button hover enter');
+                this.style.transform = 'translateY(-2px) scale(1.02)';
+            });
+
+            button.addEventListener('mouseleave', function () {
+                console.log('Button hover leave');
+                this.style.transform = '';
+            });
+        });
+
+        // Additional debugging - check for overlaying elements
+        setTimeout(() => {
+            blogButtons.forEach((button, index) => {
+                const rect = button.getBoundingClientRect();
+                const elementAtPoint = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
+                console.log(`Element at button ${index} center:`, elementAtPoint);
+                if (elementAtPoint !== button) {
+                    console.warn(`Button ${index} might be blocked by:`, elementAtPoint);
+                }
+            });
+        }, 1000);
+    });
+</script>

@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: portfolio_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: sahabaj_alam
+      POSTGRES_PASSWORD: Sahabaj@123
+      POSTGRES_DB: portfolio_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

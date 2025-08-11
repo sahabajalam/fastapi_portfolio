@@ -19,8 +19,7 @@
 }
 
 .card-hover:hover {
-    --tw-translate-y: -0.25rem;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translateY(-0.25rem);
     border-color: var(--color-primary);
     box-shadow: var(--shadow-hover);
 }
@@ -45,10 +44,18 @@
     background: var(--gradient-subtle);
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .blog-card:hover::after {
     opacity: 1;
+}
+
+/* Ensure buttons in blog cards are clickable */
+.blog-card .btn-primary {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
 }
 
 /* Certification cards shimmer effect */

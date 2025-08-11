@@ -1,14 +1,17 @@
 class NavigationManager {
     constructor() {
+        console.log('NavigationManager: Initializing...');
         this.init();
     }
 
     init() {
+        console.log('NavigationManager: Setting up components...');
         this.setupMobileMenu();
         this.setupSmoothScrolling();
         this.setupActiveLinks();
         this.setupScrollToTop();
         this.setupLogoHandler();
+        console.log('NavigationManager: Initialization complete');
     }
 
     setupMobileMenu() {
@@ -42,28 +45,41 @@ class NavigationManager {
     }
 
     setupSmoothScrolling() {
-        const navLinks = document.querySelectorAll('a[href^="#"]');
+        // Handle both href="#section" and data-section="section" links
+        const navLinks = document.querySelectorAll('a[href^="#"], a[data-section]');
 
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
 
-                if (targetElement) {
-                    const headerOffset = document.querySelector('.navbar')?.offsetHeight || 0;
-                    const elementPosition = targetElement.offsetTop;
-                    const offsetPosition = elementPosition - headerOffset - 20;
+                let targetId;
+                if (link.hasAttribute('href') && link.getAttribute('href').startsWith('#')) {
+                    targetId = link.getAttribute('href').substring(1);
+                } else if (link.hasAttribute('data-section')) {
+                    targetId = link.getAttribute('data-section');
+                }
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    console.log(`Navigating to section: ${targetId}`, targetElement);
 
-                    // Close mobile menu if open
-                    const mobileMenu = document.querySelector('.mobile-menu');
-                    if (mobileMenu) {
-                        mobileMenu.classList.remove('active');
+                    if (targetElement) {
+                        const headerOffset = document.querySelector('.navbar')?.offsetHeight || 0;
+                        const elementPosition = targetElement.offsetTop;
+                        const offsetPosition = elementPosition - headerOffset - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        const mobileMenu = document.querySelector('.mobile-menu');
+                        if (mobileMenu) {
+                            mobileMenu.classList.remove('active');
+                        }
+                    } else {
+                        console.warn(`Section with id "${targetId}" not found`);
                     }
                 }
             });

@@ -8,14 +8,14 @@
     height: clamp(280px, 30vh, 320px);
     box-shadow: var(--shadow-sm);
     transition: var(--transition-slow);
-    border: 1px solid var(--color-border-light);
+    border: 1px solid rgba(0, 185, 107, 0.1);
     background: rgba(255, 255, 255, 0.9);
 }
 
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg), 0 10px 30px rgba(0, 185, 107, 0.15);
-    border-color: var(--color-border-medium);
+    border-color: rgba(0, 185, 107, 0.2);
 }
 
 .project-image {
@@ -130,6 +130,8 @@
     display: flex;
     gap: 1rem;
     width: 100%;
+    z-index: 10;
+    position: relative;
 }
 
 .project-link {
@@ -147,18 +149,22 @@
     transition: var(--transition-slow);
     position: relative;
     overflow: hidden;
+    z-index: 10;
+    cursor: pointer;
 }
 
 .live-demo {
     background: var(--gradient-primary);
     color: #ffffff;
     box-shadow: var(--shadow-md);
+    border: none;
 }
 
 .view-code {
     background: rgba(255, 255, 255, 0.9);
     color: var(--color-text-primary);
     box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 185, 107, 0.2);
 }
 
 .project-link:hover {
@@ -167,7 +173,16 @@
 }
 
 .live-demo:hover {
+    background: linear-gradient(135deg, #00a05e 0%, #0077b3 100%);
     box-shadow: var(--shadow-md), 0 0 30px rgba(0, 185, 107, 0.4);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.view-code:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(0, 185, 107, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* View All Projects Card */
@@ -176,11 +191,15 @@
     align-items: center;
     justify-content: center;
     height: clamp(280px, 30vh, 320px);
-    border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: var(--shadow-sm);
+    border-radius: 16px;
+    /* rounded-2xl like about cards */
+    background: #ffffff;
+    /* solid white like about cards */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
     transition: var(--transition-slow);
-    border: 1px solid var(--color-border-light);
+    border: 1px solid rgb(229, 231, 235);
+    /* border-gray-200 */
     overflow: hidden;
     flex-direction: column;
     position: relative;
@@ -193,7 +212,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--gradient-subtle);
+    background: linear-gradient(135deg, rgba(0, 185, 107, 0.02) 0%, rgba(0, 136, 204, 0.02) 100%);
     opacity: 0;
     transition: var(--transition-slow);
 }
@@ -203,14 +222,23 @@
 }
 
 .view-all-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg), 0 10px 30px rgba(0, 185, 107, 0.15);
-    border-color: var(--color-border-medium);
+    transform: translateY(-2px);
+    /* subtle lift like about cards */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    /* shadow-xl */
+    border-color: rgb(229, 231, 235);
 }
 
 .view-all-icon {
-    font-size: 3rem;
-    color: var(--color-primary);
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 185, 107, 0.1) 0%, rgba(0, 136, 204, 0.1) 100%);
+    font-size: 2rem;
+    color: #00b96b;
     margin-bottom: 1rem;
     transition: var(--transition-normal);
     z-index: 1;
@@ -218,13 +246,16 @@
 }
 
 .view-all-card:hover .view-all-icon {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(0, 185, 107, 0.15) 0%, rgba(0, 136, 204, 0.15) 100%);
 }
 
 .view-all-title {
     font-size: 1.5rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text-primary);
+    font-weight: 700;
+    /* font-bold like about cards */
+    color: rgb(17, 24, 39);
+    /* text-gray-900 like about cards */
     margin-bottom: 0.5rem;
     z-index: 1;
     position: relative;
@@ -232,11 +263,13 @@
 
 .view-all-description {
     font-size: 0.9rem;
-    color: var(--color-text-secondary);
+    color: rgb(75, 85, 99);
+    /* text-gray-600 like about cards */
     margin-bottom: 1rem;
     text-align: center;
     z-index: 1;
     position: relative;
+    line-height: 1.5;
 }
 
 .view-all-card-content {

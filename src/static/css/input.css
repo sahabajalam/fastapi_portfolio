@@ -176,7 +176,10 @@
 /* Custom Complex Components - Keep as CSS */
 @import './custom/animations.css';
 @import './custom/complex-components.css';
-@import './custom/project-cards.css';
+/* Base utility classes import */
+@import './utilities/backgrounds.css';
+@import './utilities/shadows.css';
+@import './utilities/responsive.css';
 @import './custom/navbar.css';
 
 @import 'tailwindcss/utilities';

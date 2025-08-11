@@ -4,7 +4,7 @@ from typing import Optional
 
 class Settings(BaseSettings):
     # Database
-    database_url: str = "sqlite:///./portfolio.db"
+    database_url: str = "postgresql://sahabaj_alam:Sahabaj@123@localhost:5432/portfolio_db"
     redis_url: str = "redis://localhost:6379"
     
     # Security
