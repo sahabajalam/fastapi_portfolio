@@ -246,7 +246,7 @@
 
                         <!-- Scrollable content -->
                         <div class="h-64 overflow-y-scroll space-y-2 custom-scrollbar pr-1 rounded-lg p-2"
-                            id="certification-container" style="min-height: 256px; max-height: 256px;">
+                            id="certification-container" style="height: 100%;">
                             <!-- Force scroll with fixed height -->
                             {% for certification in certifications %}
                             <div class="certification-card group relative bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
@@ -377,9 +377,9 @@
         background: linear-gradient(135deg, #00a05e 0%, #0077b3 100%);
     }
 
-    /* Force scrolling on certification container */
+    /* Adjusted scrolling container to restore functionality */
     #certification-container {
-        overflow-y: scroll !important;
+        overflow-y: auto !important;
         min-height: 256px !important;
         max-height: 256px !important;
     }
