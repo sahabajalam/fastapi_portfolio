@@ -1,0 +1,55 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Development files
+.env
+.env.local
+.env.development
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+docs/
+
+# Development tools
+requirements-dev.txt
+docker-compose.yml
+Dockerfile
+
+# Alembic (since we're not using database in serverless)
+alembic/
+alembic.ini
+
+# Tests
+tests/
+*_test.py
+test_*.py
+
+# Portfolio specific
+portfolio.egg-info/
+uv.lock

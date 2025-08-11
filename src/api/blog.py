@@ -2,9 +2,12 @@ from fastapi import APIRouter, HTTPException
 from typing import List
 from src.services.blog_service import BlogService
 from src.models.blog import Blog
+from fastapi.templating import Jinja2Templates
+from fastapi.requests import Request
 
 router = APIRouter(prefix="/blogs", tags=["blogs"])
 blog_service = BlogService()
+templates = Jinja2Templates(directory="templates")
 
 
 @router.get("/", response_model=List[Blog])
@@ -26,3 +29,9 @@ async def get_blog(blog_id: int):
 async def get_featured_blogs(limit: int = 3):
     """Get featured blog posts"""
     return blog_service.get_featured_blogs(limit)
+
+
+@router.get("/blog-page")
+async def blog_page(request: Request):
+    """Serve the blog page template"""
+    return templates.TemplateResponse("blog.html", {"request": request})

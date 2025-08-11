@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -14,11 +15,27 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Mount static files
-app.mount("/static", StaticFiles(directory="src/static"), name="static")
+# Mount static files - handle both local and Vercel paths
+static_dir = "src/static"
+if os.path.exists("/var/task/src/static"):
+    static_dir = "/var/task/src/static"
+elif os.path.exists("static"):
+    static_dir = "static"
 
-# Templates configuration
-templates = Jinja2Templates(directory="src/templates")
+try:
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+except RuntimeError:
+    # Handle case where static directory doesn't exist in serverless
+    pass
+
+# Templates configuration - handle both local and Vercel paths
+template_dir = "src/templates"
+if os.path.exists("/var/task/src/templates"):
+    template_dir = "/var/task/src/templates"
+elif os.path.exists("templates"):
+    template_dir = "templates"
+
+templates = Jinja2Templates(directory=template_dir)
 
 # Include API routers
 app.include_router(blog.router, prefix="/api")
