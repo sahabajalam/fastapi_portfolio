@@ -1,0 +1,223 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Custom Base Layer - Typography and Reset */
+@layer base {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+    }
+
+    body {
+        @apply font-system text-text-primary bg-bg-primary leading-relaxed;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1 {
+        @apply text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-4 lg:mb-6 text-text-primary leading-tight;
+    }
+
+    h2 {
+        @apply text-3xl md:text-4xl font-light tracking-tight mb-4 text-text-primary leading-tight;
+    }
+
+    h3 {
+        @apply text-2xl md:text-3xl font-light tracking-tight mb-3 text-text-primary leading-tight;
+    }
+
+    h4 {
+        @apply text-xl md:text-2xl font-normal mb-3 text-text-primary;
+    }
+
+    h5 {
+        @apply text-lg md:text-xl font-normal mb-2 text-text-primary;
+    }
+
+    h6 {
+        @apply text-base md:text-lg font-medium mb-2 text-text-primary;
+    }
+
+    p {
+        @apply text-base md:text-lg leading-relaxed mb-4 text-text-secondary;
+    }
+
+    a {
+        @apply text-text-accent transition-colors duration-300;
+        text-decoration: none;
+    }
+
+    a:hover {
+        @apply text-primary-cyan;
+    }
+}
+
+/* Custom Components Layer */
+@layer components {
+
+    /* Button Components */
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-green to-secondary-cyan text-white font-semibold rounded-md transition-all duration-300 hover:shadow-glow-button hover:-translate-y-0.5 hover:scale-105 relative overflow-hidden cursor-pointer border-none;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-6 py-3 text-primary-green border-2 border-border-accent rounded-md font-semibold transition-all duration-300 backdrop-blur-sm hover:border-border-accent-strong hover:shadow-sm hover:-translate-y-0.5 hover:scale-105 relative overflow-hidden cursor-pointer;
+        background-color: rgba(0, 185, 107, 0.08);
+    }
+
+    .btn-secondary:hover {
+        background-color: rgba(0, 185, 107, 0.12);
+    }
+
+    .btn-sm {
+        @apply px-4 py-2 text-sm;
+    }
+
+    .btn-lg {
+        @apply px-8 py-4 text-lg;
+    }
+
+    .btn-icon {
+        @apply p-3 rounded-full aspect-square;
+    }
+
+    .btn:disabled {
+        @apply opacity-60 cursor-not-allowed;
+        transform: none !important;
+    }
+
+    .btn.loading {
+        @apply pointer-events-none opacity-70;
+    }
+
+    .btn.loading::after {
+        content: '';
+        @apply absolute w-4 h-4 border-2 border-transparent border-t-current rounded-full animate-spin;
+    }
+
+    /* Card Components */
+    .card-base {
+        @apply bg-bg-card border border-border-accent-strong rounded-lg p-4 lg:p-6 transition-all duration-300 backdrop-blur-sm h-full overflow-hidden relative;
+    }
+
+    .card-hover {
+        @apply hover:-translate-y-1 hover:border-primary-green hover:shadow-xl;
+        box-shadow: 0 25px 50px -12px rgba(0, 185, 107, 0.2);
+    }
+
+    .card-height {
+        height: clamp(280px, 30vh, 320px);
+    }
+
+    /* Section Components */
+    .section-container {
+        @apply w-full max-w-7xl mx-auto px-5 md:px-8 lg:px-10 xl:px-12;
+    }
+
+    .section-title {
+        @apply text-center mb-12 text-4xl font-light tracking-tight bg-gradient-to-r from-primary-green to-secondary-cyan bg-clip-text text-transparent relative;
+    }
+
+    .section-full {
+        @apply min-h-screen w-full flex flex-col items-center justify-center;
+    }
+
+    /* Form Components */
+    .form-input {
+        @apply w-full px-4 py-3 bg-bg-card border border-border-accent rounded-md text-text-primary placeholder-text-tertiary transition-all duration-300 focus:outline-none focus:border-primary-green;
+        box-shadow: 0 0 0 2px rgba(0, 185, 107, 0.2);
+    }
+
+    .form-textarea {
+        @apply w-full px-4 py-3 bg-bg-card border border-border-accent rounded-md text-text-primary placeholder-text-tertiary transition-all duration-300 focus:outline-none focus:border-primary-green;
+        resize: vertical;
+        min-height: 8rem;
+        box-shadow: 0 0 0 2px rgba(0, 185, 107, 0.2);
+    }
+
+    .form-label {
+        @apply block text-sm font-medium text-text-primary mb-2;
+    }
+
+    .form-group {
+        @apply mb-6;
+    }
+
+    /* Grid Components */
+    .cards-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10;
+    }
+
+    .cards-grid-2 {
+        @apply grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8;
+    }
+
+    .cards-grid-3 {
+        @apply grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8;
+    }
+
+    /* Utility Components */
+    .gradient-text {
+        @apply bg-gradient-to-r from-primary-green to-secondary-cyan bg-clip-text text-transparent;
+    }
+
+    .glass-effect {
+        @apply backdrop-blur-sm;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Custom Complex Components - Keep as CSS */
+@import './custom/animations.css';
+@import './custom/complex-components.css';
+@import './custom/project-cards.css';
+@import './custom/navbar.css';
+
+@import 'tailwindcss/utilities';
+
+/* Global utility classes */
+.visually-hidden {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.sr-only {
+    @apply absolute -left-96 w-px h-px overflow-hidden;
+}
+
+/* Animation classes */
+.animate-in {
+    @apply animate-fade-in-up;
+}
+
+/* Print styles */
+@media print {
+
+    .navbar,
+    .footer,
+    .btn,
+    .back-to-top {
+        display: none !important;
+    }
+
+    .hero-section,
+    .section {
+        padding: 2rem 0 !important;
+    }
+
+    .project-card,
+    .blog-card,
+    .certification-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<!-- All CSS is loaded via main.css -->
+{% endblock %}
+
+{% block content %}
+<!-- Include Hero Section -->
+{% include "components/hero.html" %}
+
+<!-- Include About Section -->
+{% include "components/about.html" %}
+
+<!-- Include Blog Section -->
+{% include "components/blog-section.html" %}
+
+<!-- Include Projects Section -->
+{% include "components/projects.html" %}
+
+<!-- Include Inspiring Quote Section -->
+{% include "components/inspiring-quote.html" %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/modules/AnimationEngine.js"></script>
+<script src="/static/js/components/Hero.js"></script>
+<script src="/static/js/components/Projects.js"></script>
+<script src="/static/js/pages/home.js"></script>
+{% endblock %}

@@ -1,0 +1,189 @@
+/* Complex Animations - Keep as Custom CSS */
+
+/* Fade animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Hero content animation sequence */
+.hero-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-content>* {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-content>*:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.hero-content>*:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.hero-content>*:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+/* Inspiring quote animations */
+.inspiring-quote-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.inspiring-quote-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #00b96b 0%, #0088cc 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.inspiring-quote-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Section animations */
+.section-animate-in>* {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.section-animate-in>*:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.section-animate-in>*:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.section-animate-in>*:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.section-animate-in>*:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for card grids */
+.cards-stagger>* {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.cards-stagger>*:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.cards-stagger>*:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.cards-stagger>*:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.cards-stagger>*:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.cards-stagger>*:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.cards-stagger>*:nth-child(6) {
+    animation-delay: 0.6s;
+}

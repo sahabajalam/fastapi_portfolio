@@ -1,0 +1,143 @@
+<!-- About Section -->
+<section id="about" class="py-20 bg-gray-50/50">
+    <div class="section-container">
+        <div class="text-center mb-16">
+            <h2 class="section-title">About Me</h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Passionate about leveraging data science and machine learning to drive innovation and improve
+                decision-making.
+            </p>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- Education Card -->
+            <div class="card-base card-hover">
+                <div class="border-b border-green-100 pb-4 mb-6 bg-green-50 -m-4 lg:-m-6 p-4 lg:p-6">
+                    <h3 class="flex items-center gap-3 text-lg font-semibold gradient-text">
+                        <i class="fas fa-graduation-cap text-green-600 text-xl"></i>
+                        Education
+                    </h3>
+                </div>
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                            <div class="font-semibold text-gray-900 text-sm">Master of Science in Data Science and
+                                Artificial Intelligence</div>
+                            <div class="text-xs text-green-600 font-medium bg-green-100 px-2 py-1 rounded-full">2024 -
+                                2025</div>
+                        </div>
+                        <div class="text-gray-600 text-sm">Bournemouth University</div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                            <div class="font-semibold text-gray-900 text-sm">Post Graduate Diploma in Data Science and
+                                Artificial Intelligence</div>
+                            <div class="text-xs text-green-600 font-medium bg-green-100 px-2 py-1 rounded-full">2021 -
+                                2022</div>
+                        </div>
+                        <div class="text-gray-600 text-sm">University of Hyderabad</div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                            <div class="font-semibold text-gray-900 text-sm">Bachelor of Technology in Electronics and
+                                Communication Engineering</div>
+                            <div class="text-xs text-green-600 font-medium bg-green-100 px-2 py-1 rounded-full">2014 -
+                                2018</div>
+                        </div>
+                        <div class="text-gray-600 text-sm">Aliah University</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div class="card-base card-hover">
+                <div class="border-b border-green-100 pb-4 mb-6 bg-green-50 -m-4 lg:-m-6 p-4 lg:p-6">
+                    <h3 class="flex items-center gap-3 text-lg font-semibold gradient-text">
+                        <i class="fas fa-cogs text-green-600 text-xl"></i>
+                        Skills
+                    </h3>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fab fa-python text-green-600"></i>
+                        Python
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fas fa-database text-green-600"></i>
+                        SQL
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fab fa-docker text-green-600"></i>
+                        Docker
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fab fa-git-alt text-green-600"></i>
+                        Git
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fas fa-dharmachakra text-green-600"></i>
+                        Kubernetes
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fab fa-aws text-green-600"></i>
+                        AWS
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fas fa-brain text-green-600"></i>
+                        Machine Learning
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fas fa-chart-bar text-green-600"></i>
+                        Data Science
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fas fa-robot text-green-600"></i>
+                        Deep Learning
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fas fa-chart-line text-green-600"></i>
+                        Data Analysis
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fab fa-github text-green-600"></i>
+                        GitHub
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700 text-sm">
+                        <i class="fas fa-project-diagram text-green-600"></i>
+                        MLOps
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Card -->
+            <div class="card-base card-hover">
+                <div class="border-b border-green-100 pb-4 mb-6 bg-green-50 -m-4 lg:-m-6 p-4 lg:p-6">
+                    <h3 class="flex items-center gap-3 text-lg font-semibold gradient-text">
+                        <i class="fas fa-certificate text-green-600 text-xl"></i>
+                        Certifications
+                    </h3>
+                </div>
+                <div class="space-y-4">
+                    {% for certification in certifications %}
+                    <div class="space-y-2 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                            <div class="font-semibold text-gray-900 text-sm">{{ certification.title }}</div>
+                            <div class="text-xs text-green-600 font-medium bg-green-100 px-2 py-1 rounded-full">{{
+                                certification.issue_date }}</div>
+                        </div>
+                        <div class="text-gray-600 text-sm">{{ certification.issuer }}</div>
+                        {% if certification.credential_url %}
+                        <a href="{{ certification.credential_url }}"
+                            class="inline-flex items-center gap-1 text-green-600 hover:text-green-700 text-xs font-medium transition-colors duration-200"
+                            target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Certificate
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,24 @@
+/* ===== MODULAR CSS ARCHITECTURE ===== */
+
+/* Core Styles */
+@import './core/reset.css';
+@import './core/variables.css';
+@import './core/base.css';
+
+/* Component Styles */
+@import './components/buttons.css';
+@import './components/cards.css';
+@import './components/forms.css';
+@import './components/ui.css';
+@import './components/project-cards.css';
+
+/* Layout Utilities */
+@import './utilities/layout.css';
+@import './utilities/animations.css';
+@import './utilities/responsive.css';
+
+/* Complex Custom Navbar - Keeping inline due to complexity */
+@import './custom/navbar.css';
+
+/* Tailwind CSS Utilities - Include all remaining Tailwind classes */
+@import './tailwind/utilities.css';
