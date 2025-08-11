@@ -11,7 +11,7 @@ class Projects {
 
     setupProjectCards() {
         const projectCards = document.querySelectorAll('.project-card');
-        
+
         projectCards.forEach(card => {
             card.addEventListener('click', (e) => {
                 if (!e.target.closest('a')) {
@@ -24,7 +24,7 @@ class Projects {
 
     setupFiltering() {
         const filterButtons = document.querySelectorAll('.project-filter');
-        
+
         filterButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -36,7 +36,7 @@ class Projects {
 
     filterProjects(category) {
         const projectCards = document.querySelectorAll('.project-card');
-        
+
         projectCards.forEach(card => {
             if (category === 'all' || card.dataset.category === category) {
                 card.style.display = 'block';

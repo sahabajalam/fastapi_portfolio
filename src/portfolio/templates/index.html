@@ -49,6 +49,14 @@
                     </div>
                     <div class="about-education-item">
                         <div class="about-education-header">
+                            <div class="about-education-degree">Post Graduate Diploma in Data Science and Artificial
+                                Intelligence</div>
+                            <div class="about-education-date">2021 - 2022</div>
+                        </div>
+                        <div class="about-education-school">University of Hyderabad</div>
+                    </div>
+                    <div class="about-education-item">
+                        <div class="about-education-header">
                             <div class="about-education-degree">Bachelor of Technology in Electronics and Communication
                                 Engineering</div>
                             <div class="about-education-date">2014 - 2018</div>
@@ -72,24 +80,48 @@
                         Python
                     </div>
                     <div class="about-skill-item">
-                        <i class="fab fa-js-square"></i>
-                        JavaScript
-                    </div>
-                    <div class="about-skill-item">
-                        <i class="fab fa-java"></i>
-                        Java
-                    </div>
-                    <div class="about-skill-item">
                         <i class="fas fa-database"></i>
                         SQL
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fab fa-docker"></i>
+                        Docker
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        Git
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fas fa-dharmachakra"></i>
+                        Kubernetes
                     </div>
                     <div class="about-skill-item">
                         <i class="fab fa-aws"></i>
                         AWS
                     </div>
                     <div class="about-skill-item">
+                        <i class="fas fa-brain"></i>
+                        Machine Learning
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fas fa-chart-bar"></i>
+                        Data Science
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fas fa-robot"></i>
+                        Deep Learning
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        Data Analysis
+                    </div>
+                    <div class="about-skill-item">
                         <i class="fab fa-github"></i>
                         GitHub
+                    </div>
+                    <div class="about-skill-item">
+                        <i class="fas fa-project-diagram"></i>
+                        MLOps
                     </div>
                 </div>
             </div>
@@ -407,6 +439,7 @@
         const navbar = document.querySelector('.navbar');
         const mobileToggle = document.querySelector('.navbar-mobile-menu-toggle');
         const navLinksContainer = document.querySelector('.navbar-links');
+        const navbarLogo = document.querySelector('.navbar-logo');
 
         // Navigation link clicks
         navLinks.forEach(link => {
@@ -435,14 +468,103 @@
             });
         });
 
-        // Navbar scroll effect
+        // Logo click handler
+        if (navbarLogo) {
+            console.log('Logo element found, attaching click handler');
+            navbarLogo.addEventListener('click', function (e) {
+                console.log('Logo clicked!');
+                e.preventDefault();
+
+                // Remove active class from all navigation links
+                document.querySelectorAll('.navbar-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add active class to Home link
+                const homeLink = document.querySelector('[data-section="home"]');
+                if (homeLink) {
+                    homeLink.closest('.navbar-link').classList.add('active');
+                    console.log('Home link activated');
+                }
+
+                // Scroll to home section
+                const homeSection = document.getElementById('home');
+                if (homeSection) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = homeSection.offsetTop - navbarHeight;
+                    console.log(`Scrolling to position: ${targetPosition}`);
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    console.error('Home section not found');
+                }
+            });
+        } else {
+            console.error('Navbar logo not found');
+        }
+
+        // Navbar scroll effect and active link detection with throttling
+        let ticking = false;
         window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    // Handle navbar scrolled effect
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+
+                    // Update active navigation link based on scroll position
+                    updateActiveNavLink();
+                    ticking = false;
+                });
+                ticking = true;
             }
         });
+
+        // Function to update active navigation link based on scroll position
+        function updateActiveNavLink() {
+            const sections = ['home', 'about', 'blog', 'projects'];
+            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+            const scrollPosition = window.scrollY + navbarHeight + 100; // Add offset for better detection
+
+            let currentSection = 'home'; // Default to home
+
+            // Find which section is currently in view
+            for (const sectionId of sections) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        currentSection = sectionId;
+                        break;
+                    }
+                }
+            }
+
+            // Special case: if we're near the bottom of the page, activate the last section
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                currentSection = sections[sections.length - 1];
+            }
+
+            // Update active classes
+            document.querySelectorAll('.navbar-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            const activeLink = document.querySelector(`[data-section="${currentSection}"]`);
+            if (activeLink) {
+                activeLink.closest('.navbar-link').classList.add('active');
+            }
+        }
+
+        // Initial call to set the correct active link on page load
+        updateActiveNavLink();
 
         // Mobile menu toggle
         if (mobileToggle) {

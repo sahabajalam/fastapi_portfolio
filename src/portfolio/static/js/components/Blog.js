@@ -11,7 +11,7 @@ class Blog {
 
     setupBlogCards() {
         const blogCards = document.querySelectorAll('.blog-post');
-        
+
         blogCards.forEach((card, index) => {
             // Stagger animation for cards
             card.style.opacity = '0';
@@ -27,7 +27,7 @@ class Blog {
 
     setupReadMoreButtons() {
         const readMoreButtons = document.querySelectorAll('.read-more');
-        
+
         readMoreButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 // Add ripple effect

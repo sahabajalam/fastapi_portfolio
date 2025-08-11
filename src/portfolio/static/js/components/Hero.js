@@ -27,7 +27,7 @@ class Hero {
             const text = typewriterElement.textContent;
             typewriterElement.textContent = '';
             let i = 0;
-            
+
             const typeWriter = () => {
                 if (i < text.length) {
                     typewriterElement.textContent += text.charAt(i);
@@ -35,7 +35,7 @@ class Hero {
                     setTimeout(typeWriter, 50);
                 }
             };
-            
+
             setTimeout(typeWriter, 1000);
         }
     }
