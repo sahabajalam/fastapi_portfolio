@@ -37,10 +37,22 @@
     {% include 'components/footer.html' %}
 
     <!-- JavaScript -->
+    <!-- Core utilities and helpers -->
     <script src="/static/js/utils/helpers.js"></script>
+    <script src="/static/js/utils/api.js"></script>
+
+    <!-- Modern component managers -->
+    <script src="/static/js/modules/NavigationManager.js"></script>
+    <script src="/static/js/modules/AnimationEngine.js"></script>
+    <script src="/static/js/modules/ThemeManager.js"></script>
+
+    <!-- Component-specific scripts -->
+    <script src="/static/js/components/CertificationScroll.js"></script>
+
+    <!-- Legacy compatibility scripts (for backwards compatibility) -->
     <script src="/static/js/modules/navigation.js"></script>
     <script src="/static/js/modules/animations.js"></script>
-    <script src="/static/js/components/CertificationScroll.js"></script>
+
     {% block extra_js %}{% endblock %}
 </body>
 

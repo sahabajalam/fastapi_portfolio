@@ -3,7 +3,6 @@
 .card-base {
     position: relative;
     height: 100%;
-    overflow: hidden;
     border-radius: var(--radius-xl);
     border-width: 1px;
     border-color: var(--color-border-strong);
@@ -126,29 +125,49 @@
 }
 
 /* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #a855f7;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #9333ea;
+}
+
+/* Firefox scrollbar styling */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #a855f7 #f1f5f9;
+}
+
+/* Legacy support - keeping the old certification styles */
 .certification-scroll-container::-webkit-scrollbar {
     width: 6px;
 }
 
 .certification-scroll-container::-webkit-scrollbar-track {
-    background: var(--color-bg-tertiary);
+    background: #f3e8ff;
     border-radius: 3px;
 }
 
 .certification-scroll-container::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
+    background: #a855f7;
     border-radius: 3px;
     transition: background-color 0.2s ease;
 }
 
 .certification-scroll-container::-webkit-scrollbar-thumb:hover {
-    background: var(--color-secondary);
-}
-
-/* Firefox scrollbar styling */
-.certification-scroll-container {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary) var(--color-bg-tertiary);
+    background: #9333ea;
 }
 
 /* Smooth scrolling */
@@ -168,9 +187,12 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.7;
     }
@@ -199,4 +221,61 @@
 
 .inspiring-quote-card:hover::before {
     transform: scaleX(1);
+}
+
+/* Enhanced Card Header Styles */
+.card-base:hover .group-hover\:bg-green-200 {
+    background-color: rgb(187 247 208);
+}
+
+.card-base:hover .group-hover\:bg-blue-200 {
+    background-color: rgb(191 219 254);
+}
+
+.card-base:hover .group-hover\:bg-purple-200 {
+    background-color: rgb(221 214 254);
+}
+
+.card-base:hover .group-hover\:translate-y-1 {
+    transform: translateY(0.25rem);
+}
+
+/* Card header gradient animation */
+.card-base .bg-gradient-to-r {
+    background-size: 200% 100%;
+    animation: subtle-gradient 3s ease-in-out infinite;
+}
+
+@keyframes subtle-gradient {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Icon container hover effects */
+.card-base .w-10.h-10 {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-base .w-10.h-10::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.card-base:hover .w-10.h-10::before {
+    transform: translateX(100%);
 }

@@ -30,14 +30,14 @@
     .sm\:hidden {
         display: none;
     }
-    
+
     /* Adjust certification scroll container for mobile */
     .certification-scroll-container {
         max-height: 250px;
         padding-right: 4px;
         margin-right: -4px;
     }
-    
+
     /* Hide scroll hint on mobile to save space */
     .certification-scroll-hint {
         display: none;

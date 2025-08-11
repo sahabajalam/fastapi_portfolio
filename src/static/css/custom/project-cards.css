@@ -144,30 +144,51 @@
     letter-spacing: 0.3px;
     flex: 1;
     white-space: nowrap;
-    transition: all 0.4s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.project-link:focus {
+    outline: 2px solid rgba(0, 185, 107, 0.5);
+    outline-offset: 2px;
 }
 
 .live-demo {
     background: linear-gradient(135deg, #00b96b 0%, #0088cc 100%);
     color: #ffffff;
-    box-shadow: 0 8px 25px rgba(0, 185, 107, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 185, 107, 0.3);
 }
 
 .view-code {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     color: #1a1a1a;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 185, 107, 0.2);
 }
 
 .project-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px) scale(1.02);
 }
 
 .live-demo:hover {
-    box-shadow: 0 8px 25px rgba(0, 185, 107, 0.2), 0 0 30px rgba(0, 185, 107, 0.4);
+    background: linear-gradient(135deg, #00a05e 0%, #0077b3 100%);
+    box-shadow: 0 8px 25px rgba(0, 185, 107, 0.4), 0 0 20px rgba(0, 185, 107, 0.2);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.view-code:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 185, 107, 0.1);
+    border-color: rgba(0, 185, 107, 0.4);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.project-link:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 /* View All Projects Card */

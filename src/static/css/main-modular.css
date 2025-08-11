@@ -1,23 +1,30 @@
 /* ===== MODULAR CSS ARCHITECTURE ===== */
+/* 
+ * This file serves as the main entry point for all CSS.
+ * Import order is important for proper cascading.
+ * 
+ * Performance note: Consider combining critical CSS inline
+ * for above-the-fold content in production.
+ */
 
-/* Core Styles */
+/* Core Styles - Foundation layer */
 @import './core/reset.css';
 @import './core/variables.css';
 @import './core/base.css';
 
-/* Component Styles */
+/* Component Styles - Reusable UI components */
 @import './components/buttons.css';
 @import './components/cards.css';
 @import './components/forms.css';
 @import './components/ui.css';
 @import './components/project-cards.css';
 
-/* Layout Utilities */
+/* Layout Utilities - Layout and positioning helpers */
 @import './utilities/layout.css';
 @import './utilities/animations.css';
 @import './utilities/responsive.css';
 
-/* Complex Custom Navbar - Keeping inline due to complexity */
+/* Complex Custom Components - Page-specific styles */
 @import './custom/navbar.css';
 
 /* Tailwind CSS Utilities - Include all remaining Tailwind classes */
