@@ -1,0 +1,14 @@
+{
+    "name": "fastapi-portfolio",
+    "version": "1.0.0",
+    "description": "Personal Portfolio Website with FastAPI and Tailwind CSS",
+    "scripts": {
+        "build-css": "tailwindcss -i ./src/portfolio/static/css/input.css -o ./src/portfolio/static/css/main.css --watch",
+        "build-css-prod": "tailwindcss -i ./src/portfolio/static/css/input.css -o ./src/portfolio/static/css/main.css --minify"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.4.0",
+        "postcss": "^8.4.31",
+        "autoprefixer": "^10.4.16"
+    }
+}
