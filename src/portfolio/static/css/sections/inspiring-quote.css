@@ -1,0 +1,182 @@
+/* Inspiring Quote Section */
+.inspiring-quote-section {
+    padding: 2rem 1rem;
+    background:
+        radial-gradient(ellipse at top, rgba(0, 185, 107, 0.02) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(0, 136, 204, 0.02) 0%, transparent 50%),
+        #ffffff;
+    position: relative;
+    overflow: hidden;
+    min-height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inspiring-quote-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.inspiring-quote-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    text-align: center;
+    border: 1px solid rgba(0, 185, 107, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 180px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.inspiring-quote-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #00b96b 0%, #0088cc 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.inspiring-quote-card:hover::before {
+    transform: scaleX(1);
+}
+
+.inspiring-quote-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 185, 107, 0.15);
+    border-color: rgba(0, 185, 107, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.inspiring-quote-card .quote-icon {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #00b96b 0%, #0088cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.inspiring-quote-card .quote-text {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    line-height: 1.5;
+    color: #1a1a1a;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inspiring-quote-card .quote-author {
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #00b96b 0%, #0088cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.inspiring-quote-card .quote-author::before {
+    content: '—';
+    margin-right: 0.5rem;
+    color: #6a6a6a;
+}
+
+/* Background floating elements */
+.inspiring-quote-section .bg-quote-mark {
+    position: absolute;
+    font-size: 8rem;
+    color: rgba(0, 185, 107, 0.03);
+    font-family: Georgia, serif;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.inspiring-quote-section .bg-quote-mark.mark-1 {
+    top: 15%;
+    left: 5%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.inspiring-quote-section .bg-quote-mark.mark-2 {
+    bottom: 15%;
+    right: 5%;
+    animation: float 6s ease-in-out infinite reverse;
+    animation-delay: 3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .inspiring-quote-section {
+        padding: 2rem 1rem;
+        min-height: 20vh;
+    }
+
+    .inspiring-quote-card {
+        min-height: 150px;
+        padding: 1.5rem 2rem;
+    }
+
+    .inspiring-quote-card .quote-icon {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .inspiring-quote-card .quote-text {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .inspiring-quote-card .quote-author {
+        font-size: 1rem;
+    }
+
+    .inspiring-quote-section .bg-quote-mark {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .inspiring-quote-section {
+        padding: 1.5rem 1rem;
+        min-height: 18vh;
+    }
+
+    .inspiring-quote-card {
+        min-height: 130px;
+        padding: 1.2rem 1.5rem;
+    }
+
+    .inspiring-quote-card .quote-text {
+        font-size: 1rem;
+    }
+
+    .inspiring-quote-card .quote-author {
+        font-size: 0.9rem;
+    }
+}
